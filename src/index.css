@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root,
+.app{
+    @apply h-full bg-white font-Roboto
+}
+
+@layer components {
+    .numberbutton{
+        @apply bg-iphone-darkgray w-16 h-16 rounded-full text-white text-2xl justify-self-center
+    }
+    .numberbutton-zero{
+        @apply col-span-2 w-full h-16 text-left pl-8
+    }
+    .functionalbutton{
+        @apply bg-iphone-lightgray w-16 h-16 rounded-full text-2xl justify-self-center
+    }
+    .functionalbutton-yellow{
+        @apply bg-iphone-yellow text-white
+    }
+}
