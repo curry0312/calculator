@@ -11,10 +11,26 @@ const numberSlice = createSlice({
   initialState,
   reducers: {
     addNumber: (state, action) => {
+      //check if we add decimal instead of number
       if (action.payload === ".") {
         if (state.calculation.includes(".")) return;
+        else {
+          state.calculation = state.calculation + action.payload;
+        }
       }
-      state.calculation = state.calculation + action.payload;
+      //check if the first letter is zero
+      else if (state.calculation.charAt(0) === "0" && action.payload === "0") {
+        //if we add zero after decimal, we can add it
+        if (state.calculation.includes("."))
+          state.calculation = state.calculation + action.payload;
+        //otherwise replace the first letter
+        else {
+          state.calculation = action.payload;
+        }
+      } 
+      else {
+        state.calculation = state.calculation + action.payload;
+      }
     },
     cleanNumbers: (state) => {
       state.calculation = "";
